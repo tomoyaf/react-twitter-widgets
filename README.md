@@ -14,7 +14,7 @@ npm install --save react-twitter-widgets
 
 ## Example
 
-```
+```javascript
 import { Timeline } from 'react-twitter-widgets'
 // var Timeline = require('react-twitter-widgets').Timeline
 
@@ -41,7 +41,7 @@ All widgets take an optional options object prop. To learn more about the availa
 
 `Follow` and `Mention` require a `username` prop.
 
-`Hashtag` requires a `tag` prop.
+`Hashtag` requires a `hashtag` prop.
 
 `Tweet` requires a `tweetId` prop. Ex. `'511181794914627584'`
 
