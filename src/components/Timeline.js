@@ -7,6 +7,10 @@ export default class Timeline extends React.Component {
     options: React.PropTypes.object
   };
 
+  static defaultProps = {
+    options: {}
+  };
+
   ready(tw, element) {
     const { widgetId, options } = this.props
 
@@ -20,8 +24,6 @@ export default class Timeline extends React.Component {
     const { widgetId, options } = this.props
     return (
       <AbstractWidget
-        widgetId={widgetId}
-        options={options}
         ready={::this.ready}
       />
     )
