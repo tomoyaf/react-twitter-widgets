@@ -1,6 +1,6 @@
 {
   "name": "react-twitter-widgets",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Twitter widgets as React components",
   "main": "dist/index.js",
   "scripts": {
@@ -47,6 +47,7 @@
     "rimraf": "^2.5.2"
   },
   "dependencies": {
+    "lodash.clonedeep": "^4.3.1",
     "lodash.isequal": "^4.1.1",
     "react": "^0.14.7",
     "scriptjs": "^2.5.8"

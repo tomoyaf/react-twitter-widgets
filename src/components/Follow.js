@@ -1,6 +1,7 @@
 import React from 'react'
 import AbstractWidget from './AbstractWidget'
 import isEqual from 'lodash.isequal'
+import cloneDeep from 'lodash.clonedeep'
 
 export default class Follow extends React.Component {
   static propTypes = {
@@ -20,7 +21,8 @@ export default class Follow extends React.Component {
   ready(tw, element, done) {
     const { username, options } = this.props
 
-    tw.widgets.createFollowButton(username, element, options)
+    // Options must be cloned since Twitter Widgets modifies it directly
+    tw.widgets.createFollowButton(username, element, cloneDeep(options))
     .then(() => {
       // Widget is loaded
       done()
