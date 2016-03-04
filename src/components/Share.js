@@ -1,9 +1,9 @@
 import React from 'react'
 import AbstractWidget from './AbstractWidget'
 
-export default class Timeline extends React.Component {
+export default class Share extends React.Component {
   static propTypes = {
-    widgetId: React.PropTypes.string.isRequired,
+    url: React.PropTypes.string.isRequired,
     options: React.PropTypes.object
   };
 
@@ -12,9 +12,9 @@ export default class Timeline extends React.Component {
   };
 
   ready(tw, element) {
-    const { widgetId, options } = this.props
+    const { url, options } = this.props
 
-    tw.widgets.createTimeline(widgetId, element, options)
+    tw.widgets.createShareButton(url, element, options)
     .then(() => {
       // Widget is loaded
     })

@@ -1,9 +1,9 @@
 import React from 'react'
 import AbstractWidget from './AbstractWidget'
 
-export default class Timeline extends React.Component {
+export default class Tweet extends React.Component {
   static propTypes = {
-    widgetId: React.PropTypes.string.isRequired,
+    tweetId: React.PropTypes.string.isRequired,
     options: React.PropTypes.object
   };
 
@@ -12,9 +12,9 @@ export default class Timeline extends React.Component {
   };
 
   ready(tw, element) {
-    const { widgetId, options } = this.props
+    const { tweetId, options } = this.props
 
-    tw.widgets.createTimeline(widgetId, element, options)
+    tw.widgets.createTweet(tweetId, element, options)
     .then(() => {
       // Widget is loaded
     })

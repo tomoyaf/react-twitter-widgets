@@ -1,9 +1,9 @@
 import React from 'react'
 import AbstractWidget from './AbstractWidget'
 
-export default class Timeline extends React.Component {
+export default class Hashtag extends React.Component {
   static propTypes = {
-    widgetId: React.PropTypes.string.isRequired,
+    hashtag: React.PropTypes.string.isRequired,
     options: React.PropTypes.object
   };
 
@@ -12,9 +12,9 @@ export default class Timeline extends React.Component {
   };
 
   ready(tw, element) {
-    const { widgetId, options } = this.props
+    const { hashtag, options } = this.props
 
-    tw.widgets.createTimeline(widgetId, element, options)
+    tw.widgets.createHashtagButton(hashtag, element, options)
     .then(() => {
       // Widget is loaded
     })

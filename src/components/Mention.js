@@ -1,9 +1,9 @@
 import React from 'react'
 import AbstractWidget from './AbstractWidget'
 
-export default class Timeline extends React.Component {
+export default class Mention extends React.Component {
   static propTypes = {
-    widgetId: React.PropTypes.string.isRequired,
+    username: React.PropTypes.string.isRequired,
     options: React.PropTypes.object
   };
 
@@ -12,9 +12,9 @@ export default class Timeline extends React.Component {
   };
 
   ready(tw, element) {
-    const { widgetId, options } = this.props
+    const { username, options } = this.props
 
-    tw.widgets.createTimeline(widgetId, element, options)
+    tw.widgets.createMentionButton(username, element, options)
     .then(() => {
       // Widget is loaded
     })

@@ -16,12 +16,13 @@ npm install --save react-twitter-widgets
 
 ```
 import { Timeline } from 'react-twitter-widgets'
+// var Timeline = require('react-twitter-widgets').Timeline
 
 ReactDOM.render((
   <Timeline
     widgetId={'29838471883830183'}
     options={{
-      screenName: 'TwitterDev',
+      username: 'TwitterDev',
       height: '400'
     }}
   />
@@ -34,11 +35,11 @@ Available widgets: `Timeline`, `Share`, `Follow`, `Hashtag`, `Mention`, `Tweet`
 
 All widgets take an optional options object prop. To learn more about the available options (height, width, align, count, etc), see [this link](https://dev.twitter.com/web/javascript/creating-widgets).
 
-`Timeline` requires the widget id supplied by Twitter as `widgetId` (ex. `'123456'`). Also, note that you can override your configured screen name with a custom screenName in the options object.
+`Timeline` requires the widget id supplied by Twitter as `widgetId` (ex. `'123456'`). Also, note that you can override your configured screen name with a custom screenName (username) in the options object.
 
 `Share` requires a `url` prop.
 
-`Follow` and `Mention` require a `screenName` prop.
+`Follow` and `Mention` require a `username` prop.
 
 `Hashtag` requires a `tag` prop.
 
