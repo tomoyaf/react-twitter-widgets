@@ -11,12 +11,13 @@ export default class Follow extends React.Component {
     options: {}
   };
 
-  ready(tw, element) {
+  ready(tw, element, done) {
     const { username, options } = this.props
 
     tw.widgets.createFollowButton(username, element, options)
     .then(() => {
       // Widget is loaded
+      done()
     })
   }
 

@@ -20,19 +20,30 @@ export default class AbstractWidget extends React.Component {
   }
 
   loadWidget() {
-    // Delete existing
-    this.emptyWidgetWrapperDOMChildren()
+    const { widgetWrapper } = this.refs
 
     $script.ready('twitter-widgets', () => {
-      this.props.ready(window.twttr, this.refs.widgetWrapper)
+      // Delete existing
+      this.removeChildren(widgetWrapper)
+
+      // Create widget
+      this.props.ready(window.twttr, widgetWrapper, ::this.done)
     })
   }
 
-  emptyWidgetWrapperDOMChildren() {
-    const { widgetWrapper } = this.refs
+  done() {
+    this.removeChildrenExceptLast(this.refs.widgetWrapper)
+  }
 
-    while (widgetWrapper.firstChild) {
-      widgetWrapper.removeChild(widgetWrapper.firstChild)
+  removeChildren(node) {
+    while (node.firstChild) {
+      node.removeChild(node.firstChild)
+    }
+  }
+
+  removeChildrenExceptLast(node) {
+    while (node.childNodes.length > 1) {
+      node.removeChild(node.firstChild)
     }
   }
 

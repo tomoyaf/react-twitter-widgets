@@ -11,12 +11,13 @@ export default class Mention extends React.Component {
     options: {}
   };
 
-  ready(tw, element) {
+  ready(tw, element, done) {
     const { username, options } = this.props
 
     tw.widgets.createMentionButton(username, element, options)
     .then(() => {
       // Widget is loaded
+      done()
     })
   }
 

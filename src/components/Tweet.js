@@ -11,12 +11,13 @@ export default class Tweet extends React.Component {
     options: {}
   };
 
-  ready(tw, element) {
+  ready(tw, element, done) {
     const { tweetId, options } = this.props
 
     tw.widgets.createTweet(tweetId, element, options)
     .then(() => {
       // Widget is loaded
+      done()
     })
   }
 

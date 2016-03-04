@@ -11,12 +11,13 @@ export default class Hashtag extends React.Component {
     options: {}
   };
 
-  ready(tw, element) {
+  ready(tw, element, done) {
     const { hashtag, options } = this.props
 
     tw.widgets.createHashtagButton(hashtag, element, options)
     .then(() => {
       // Widget is loaded
+      done()
     })
   }
 

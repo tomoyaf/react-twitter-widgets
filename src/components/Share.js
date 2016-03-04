@@ -11,12 +11,13 @@ export default class Share extends React.Component {
     options: {}
   };
 
-  ready(tw, element) {
+  ready(tw, element, done) {
     const { url, options } = this.props
 
     tw.widgets.createShareButton(url, element, options)
     .then(() => {
       // Widget is loaded
+      done()
     })
   }
 

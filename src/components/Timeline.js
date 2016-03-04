@@ -11,12 +11,13 @@ export default class Timeline extends React.Component {
     options: {}
   };
 
-  ready(tw, element) {
+  ready(tw, element, done) {
     const { widgetId, options } = this.props
 
     tw.widgets.createTimeline(widgetId, element, options)
     .then(() => {
       // Widget is loaded
+      done()
     })
   }
 
