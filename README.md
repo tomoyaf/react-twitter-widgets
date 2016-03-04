@@ -2,19 +2,9 @@
 
 Alleviates the need for Twitter's default 2008-style widget snippets.
 
-Available widgets: `Timeline`, `Share`, `Follow`, `Hashtag`, `Mention`, `Tweet`
+Available widgets: `Timeline`, `Share`, `Follow`, `Hashtag`, `Mention`, `Tweet`.
 
-All widgets take an optional options object prop. To learn more about the available options (height, width, align, count, etc), see [this link](https://dev.twitter.com/web/javascript/creating-widgets).
-
-`Timeline` requires the widget id supplied by Twitter as `widgetId` (ex. `'123456'`). Also, note that you can override your configured screen name with a custom screenName in the options object.
-
-`Share` requires a `url` prop.
-
-`Follow` and `Mention` require a `screenName` prop.
-
-`Hashtag` requires a `tag` prop.
-
-`Tweet` requires a `tweetId` prop. Ex. `'511181794914627584'`
+See below for usage.
 
 ## Installation
 
@@ -22,7 +12,7 @@ All widgets take an optional options object prop. To learn more about the availa
 npm install --save react-twitter-widgets
 ```
 
-## Usage
+## Example
 
 ```
 import { Timeline } from 'react-twitter-widgets'
@@ -37,6 +27,22 @@ ReactDOM.render((
   />
 ), document.getElementById('root'))
 ```
+
+# Usage
+
+Available widgets: `Timeline`, `Share`, `Follow`, `Hashtag`, `Mention`, `Tweet`
+
+All widgets take an optional options object prop. To learn more about the available options (height, width, align, count, etc), see [this link](https://dev.twitter.com/web/javascript/creating-widgets).
+
+`Timeline` requires the widget id supplied by Twitter as `widgetId` (ex. `'123456'`). Also, note that you can override your configured screen name with a custom screenName in the options object.
+
+`Share` requires a `url` prop.
+
+`Follow` and `Mention` require a `screenName` prop.
+
+`Hashtag` requires a `tag` prop.
+
+`Tweet` requires a `tweetId` prop. Ex. `'511181794914627584'`
 
 ## Contributing
 
