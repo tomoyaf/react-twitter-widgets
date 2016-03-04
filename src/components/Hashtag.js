@@ -1,5 +1,6 @@
 import React from 'react'
 import AbstractWidget from './AbstractWidget'
+import isEqual from 'lodash.isequal'
 
 export default class Hashtag extends React.Component {
   static propTypes = {
@@ -10,6 +11,11 @@ export default class Hashtag extends React.Component {
   static defaultProps = {
     options: {}
   };
+
+  shouldComponentUpdate(nextProps) {
+    const changed = name => !isEqual(this.props[name], nextProps[name])
+    return changed('hashtag') || changed('options')
+  }
 
   ready(tw, element, done) {
     const { hashtag, options } = this.props

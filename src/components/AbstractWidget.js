@@ -10,11 +10,6 @@ export default class AbstractWidget extends React.Component {
     this.loadWidget()
   }
 
-  shouldComponentUpdate() {
-    // TODO
-    return true
-  }
-
   componentDidUpdate() {
     this.loadWidget()
   }
