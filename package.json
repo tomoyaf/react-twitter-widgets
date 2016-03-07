@@ -51,7 +51,7 @@
     "lodash.isequal": "^4.1.1",
     "scriptjs": "^2.5.8"
   },
-  peerDependencies: {
+  "peerDependencies": {
     "react": ">=0.13"
   }
 }
