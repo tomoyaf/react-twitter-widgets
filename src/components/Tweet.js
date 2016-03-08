@@ -6,11 +6,13 @@ import cloneDeep from 'lodash.clonedeep'
 export default class Tweet extends React.Component {
   static propTypes = {
     tweetId: React.PropTypes.string.isRequired,
-    options: React.PropTypes.object
+    options: React.PropTypes.object,
+    onLoad: React.PropTypes.func
   };
 
   static defaultProps = {
-    options: {}
+    options: {},
+    onLoad: () => {}
   };
 
   shouldComponentUpdate(nextProps) {
@@ -19,13 +21,14 @@ export default class Tweet extends React.Component {
   }
 
   ready(tw, element, done) {
-    const { tweetId, options } = this.props
+    const { tweetId, options, onLoad } = this.props
 
     // Options must be cloned since Twitter Widgets modifies it directly
     tw.widgets.createTweet(tweetId, element, cloneDeep(options))
     .then(() => {
       // Widget is loaded
       done()
+      onLoad()
     })
   }
 

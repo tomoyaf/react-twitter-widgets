@@ -6,11 +6,13 @@ import cloneDeep from 'lodash.clonedeep'
 export default class Hashtag extends React.Component {
   static propTypes = {
     hashtag: React.PropTypes.string.isRequired,
-    options: React.PropTypes.object
+    options: React.PropTypes.object,
+    onLoad: React.PropTypes.func
   };
 
   static defaultProps = {
-    options: {}
+    options: {},
+    onLoad: () => {}
   };
 
   shouldComponentUpdate(nextProps) {
@@ -19,13 +21,14 @@ export default class Hashtag extends React.Component {
   }
 
   ready(tw, element, done) {
-    const { hashtag, options } = this.props
+    const { hashtag, options, onLoad } = this.props
 
     // Options must be cloned since Twitter Widgets modifies it directly
     tw.widgets.createHashtagButton(hashtag, element, cloneDeep(options))
     .then(() => {
       // Widget is loaded
       done()
+      onLoad()
     })
   }
 

@@ -25,6 +25,7 @@ ReactDOM.render((
       username: 'TwitterDev',
       height: '400'
     }}
+    onLoad={() => console.log('Timeline is loaded!')}
   />
 ), document.getElementById('root'))
 ```
@@ -44,6 +45,8 @@ All widgets take an optional options object prop. To learn more about the availa
 `Hashtag` requires a `hashtag` prop.
 
 `Tweet` requires a `tweetId` prop. Ex. `'511181794914627584'`
+
+All widgets accept an optional `onLoad` callback, which is called every time the widget is loaded/reloaded (both on inital load and updates).
 
 ## Contributing
 
