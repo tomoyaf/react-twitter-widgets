@@ -6,12 +6,20 @@ export default class AbstractWidget extends React.Component {
     ready: React.PropTypes.func.isRequired
   };
 
+  componentWillMount() {
+    this.willUnmount = false
+  }
+
   componentDidMount() {
     this.loadWidget()
   }
 
   componentDidUpdate() {
     this.loadWidget()
+  }
+
+  componentWillUnmount() {
+    this.willUnmount = true
   }
 
   loadWidget() {
@@ -27,18 +35,24 @@ export default class AbstractWidget extends React.Component {
   }
 
   done() {
-    this.removeChildrenExceptLast(this.refs.widgetWrapper)
+    if (this.willUnmount) {
+      this.removeChildrenExceptLast(this.refs.widgetWrapper)
+    }
   }
 
   removeChildren(node) {
-    while (node.firstChild) {
-      node.removeChild(node.firstChild)
+    if (node) {
+      while (node.firstChild) {
+        node.removeChild(node.firstChild)
+      }
     }
   }
 
   removeChildrenExceptLast(node) {
-    while (node.childNodes.length > 1) {
-      node.removeChild(node.firstChild)
+    if (node) {
+      while (node.childNodes.length > 1) {
+        node.removeChild(node.firstChild)
+      }
     }
   }
 
