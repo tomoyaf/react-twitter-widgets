@@ -5,7 +5,7 @@ import cloneDeep from 'lodash.clonedeep'
 
 export default class Timeline extends React.Component {
   static propTypes = {
-    widgetId: React.PropTypes.string.isRequired,
+    dataSource: React.PropTypes.object.isRequired,
     options: React.PropTypes.object,
     onLoad: React.PropTypes.func
   };
@@ -17,14 +17,14 @@ export default class Timeline extends React.Component {
 
   shouldComponentUpdate(nextProps) {
     const changed = name => !isEqual(this.props[name], nextProps[name])
-    return changed('widgetId') || changed('options')
+    return changed('dataSource') || changed('options')
   }
 
   ready(tw, element, done) {
-    const { widgetId, options, onLoad } = this.props
+    const { dataSource, options, onLoad } = this.props
 
     // Options must be cloned since Twitter Widgets modifies it directly
-    tw.widgets.createTimeline(widgetId, element, cloneDeep(options))
+    tw.widgets.createTimeline(dataSource, element, cloneDeep(options))
     .then(() => {
       // Widget is loaded
       done()

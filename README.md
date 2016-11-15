@@ -20,7 +20,10 @@ import { Timeline } from 'react-twitter-widgets'
 
 ReactDOM.render((
   <Timeline
-    widgetId={'29838471883830183'}
+    dataSource={{
+      sourceType: 'profile',
+      screenName: 'twitterdev'
+    }}
     options={{
       username: 'TwitterDev',
       height: '400'
@@ -36,7 +39,7 @@ Available widgets: `Timeline`, `Share`, `Follow`, `Hashtag`, `Mention`, `Tweet`
 
 All widgets take an optional options object prop. To learn more about the available options (height, width, align, count, etc), see [this link](https://dev.twitter.com/web/javascript/creating-widgets).
 
-`Timeline` requires the widget id supplied by Twitter as `widgetId` (ex. `'123456'`). Also, note that you can override your configured screen name with a custom screenName (username) in the options object.
+`Timeline` requires a `dataSource` object prop, see [here](https://dev.twitter.com/web/javascript/creating-widgets#timelines) for info. The source type can be profile, likes, list, collection, URL, or legacy widget configuration.
 
 `Share` requires a `url` prop.
 
