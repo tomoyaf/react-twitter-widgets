@@ -1,6 +1,9 @@
-import $script from 'scriptjs'
+import { canUseDOM } from 'exenv'
 
-$script('//platform.twitter.com/widgets.js', 'twitter-widgets')
+if (canUseDOM) {
+  const $script = require('scriptjs')
+  $script('//platform.twitter.com/widgets.js', 'twitter-widgets')
+}
 
 export Follow from './components/Follow'
 export Hashtag from './components/Hashtag'

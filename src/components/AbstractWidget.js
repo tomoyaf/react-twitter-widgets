@@ -1,5 +1,4 @@
 import React from 'react'
-import $script from 'scriptjs'
 
 export default class AbstractWidget extends React.Component {
   static propTypes = {
@@ -24,6 +23,7 @@ export default class AbstractWidget extends React.Component {
 
   loadWidget() {
     const { widgetWrapper } = this.refs
+    const $script = require('scriptjs')
 
     $script.ready('twitter-widgets', () => {
       // Delete existing
