@@ -14,6 +14,8 @@ npm install --save react-twitter-widgets
 
 ## Example
 
+[Click here](./site/screenshot.png) for a preview of all available widgets with example code.
+
 ```javascript
 import { Timeline } from 'react-twitter-widgets'
 // var Timeline = require('react-twitter-widgets').Timeline
