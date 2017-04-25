@@ -29,8 +29,8 @@ export default class AbstractWidget extends React.Component {
       if (!window.twttr) {
         // If the script tag fails to load, scriptjs.ready() will still trigger.
         // Let's avoid the JS exceptions when that happens.
-        console.error('Failure to load window.twttr, aborting load.');
-        return;
+        console.error('Failure to load window.twttr, aborting load.')
+        return
       }
 
       // Delete existing
