@@ -3,8 +3,24 @@ import PropTypes from 'prop-types'
 
 export default class AbstractWidget extends React.Component {
   static propTypes = {
-    ready: PropTypes.func.isRequired
+    ready: PropTypes.func.isRequired,
   };
+
+  static removeChildren(node) {
+    if (node) {
+      while (node.firstChild) {
+        node.removeChild(node.firstChild)
+      }
+    }
+  }
+
+  static removeChildrenExceptLast(node) {
+    if (node) {
+      while (node.childNodes.length > 1) {
+        node.removeChild(node.firstChild)
+      }
+    }
+  }
 
   componentWillMount() {
     this.willUnmount = false
@@ -24,18 +40,18 @@ export default class AbstractWidget extends React.Component {
 
   loadWidget() {
     const { widgetWrapper } = this.refs
-    const $script = require('scriptjs')
+    const $script = require('scriptjs') // eslint-disable-line global-require
 
     $script.ready('twitter-widgets', () => {
       if (!window.twttr) {
         // If the script tag fails to load, scriptjs.ready() will still trigger.
         // Let's avoid the JS exceptions when that happens.
-        console.error('Failure to load window.twttr, aborting load.')
+        console.error('Failure to load window.twttr, aborting load.') // eslint-disable-line no-console
         return
       }
 
       // Delete existing
-      this.removeChildren(widgetWrapper)
+      AbstractWidget.removeChildren(widgetWrapper)
 
       // Create widget
       this.props.ready(window.twttr, widgetWrapper, ::this.done)
@@ -44,23 +60,7 @@ export default class AbstractWidget extends React.Component {
 
   done() {
     if (this.willUnmount) {
-      this.removeChildrenExceptLast(this.refs.widgetWrapper)
-    }
-  }
-
-  removeChildren(node) {
-    if (node) {
-      while (node.firstChild) {
-        node.removeChild(node.firstChild)
-      }
-    }
-  }
-
-  removeChildrenExceptLast(node) {
-    if (node) {
-      while (node.childNodes.length > 1) {
-        node.removeChild(node.firstChild)
-      }
+      AbstractWidget.removeChildrenExceptLast(this.refs.widgetWrapper)
     }
   }
 

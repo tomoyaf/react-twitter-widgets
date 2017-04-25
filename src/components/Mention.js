@@ -1,27 +1,27 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import AbstractWidget from './AbstractWidget'
 import isEqual from 'lodash.isequal'
 import cloneDeep from 'lodash.clonedeep'
+import AbstractWidget from './AbstractWidget'
 
 export default class Mention extends React.Component {
   static propTypes = {
     username: PropTypes.string.isRequired,
     options: PropTypes.object,
-    onLoad: PropTypes.func
+    onLoad: PropTypes.func,
   };
 
   static defaultProps = {
     options: {},
-    onLoad: () => {}
+    onLoad: () => {},
   };
 
   shouldComponentUpdate(nextProps) {
-    const changed = name => !isEqual(this.props[name], nextProps[name])
+    const changed = (name) => !isEqual(this.props[name], nextProps[name])
     return changed('username') || changed('options')
   }
 
-  ready(tw, element, done) {
+  ready = (tw, element, done) => {
     const { username, options, onLoad } = this.props
 
     // Options must be cloned since Twitter Widgets modifies it directly
@@ -34,6 +34,6 @@ export default class Mention extends React.Component {
   }
 
   render() {
-    return <AbstractWidget ready={::this.ready} />
+    return <AbstractWidget ready={this.ready} />
   }
 }
