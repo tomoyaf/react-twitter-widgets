@@ -64,6 +64,10 @@ export default class AbstractWidget extends React.Component {
   }
 
   render() {
-    return <div ref={(c) => { this.widgetWrapper = c }} />
+    return React.createElement('div', {
+      ref: (c) => {
+        this.widgetWrapper = c
+      },
+    })
   }
 }

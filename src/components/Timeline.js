@@ -34,6 +34,6 @@ export default class Timeline extends React.Component {
   }
 
   render() {
-    return <AbstractWidget ready={this.ready} />
+    return React.createElement(AbstractWidget, { ready: this.ready })
   }
 }

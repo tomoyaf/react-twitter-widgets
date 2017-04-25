@@ -2,7 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import isEqual from 'lodash.isequal'
 import cloneDeep from 'lodash.clonedeep'
+
 import AbstractWidget from './AbstractWidget'
+
 
 export default class Follow extends React.Component {
   static propTypes = {
@@ -34,6 +36,6 @@ export default class Follow extends React.Component {
   }
 
   render() {
-    return <AbstractWidget ready={this.ready} />
+    return React.createElement(AbstractWidget, { ready: this.ready })
   }
 }
