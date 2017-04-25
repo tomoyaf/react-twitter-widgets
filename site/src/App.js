@@ -1,7 +1,13 @@
 import React, { Component } from 'react'
+
 import logo from './logo.svg'
+
 import './App.css'
-import { Timeline } from '../../dist'
+
+import WidgetExample from './WidgetExample'
+
+import widgetPropExamples from './widgetPropExamples'
+
 
 class App extends Component {
   render() {
@@ -9,22 +15,17 @@ class App extends Component {
       <div className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+          <h1>react-twitter-widgets</h1>
+          <h2>by Andrew Suzuki (@andrewsuzuki)</h2>
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-        <div>
-          <Timeline
-            dataSource={{
-              sourceType: 'profile',
-              screenName: 'twitterdev'
-            }}
-            options={{
-              username: 'TwitterDev',
-              height: '400'
-            }}
-          />
+        <div className="App-content">
+          {Object.keys(widgetPropExamples).map((name) =>
+            <WidgetExample
+              key={name}
+              widget={name}
+              widgetProps={widgetPropExamples[name]}
+            />
+          )}
         </div>
       </div>
     )
