@@ -38,8 +38,7 @@ export default class AbstractWidget extends React.Component {
     this.willUnmount = true
   }
 
-  loadWidget() {
-    const { widgetWrapper } = this.refs
+  loadWidget = () => {
     const $script = require('scriptjs') // eslint-disable-line global-require
 
     $script.ready('twitter-widgets', () => {
@@ -51,20 +50,20 @@ export default class AbstractWidget extends React.Component {
       }
 
       // Delete existing
-      AbstractWidget.removeChildren(widgetWrapper)
+      AbstractWidget.removeChildren(this.widgetWrapper)
 
       // Create widget
-      this.props.ready(window.twttr, widgetWrapper, ::this.done)
+      this.props.ready(window.twttr, this.widgetWrapper, this.done)
     })
   }
 
-  done() {
+  done = () => {
     if (this.willUnmount) {
-      AbstractWidget.removeChildrenExceptLast(this.refs.widgetWrapper)
+      AbstractWidget.removeChildrenExceptLast(this.widgetWrapper)
     }
   }
 
   render() {
-    return <div ref="widgetWrapper" />
+    return <div ref={(c) => { this.widgetWrapper = c }} />
   }
 }
