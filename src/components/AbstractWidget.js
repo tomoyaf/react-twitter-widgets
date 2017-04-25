@@ -1,8 +1,9 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 export default class AbstractWidget extends React.Component {
   static propTypes = {
-    ready: React.PropTypes.func.isRequired
+    ready: PropTypes.func.isRequired
   };
 
   componentWillMount() {

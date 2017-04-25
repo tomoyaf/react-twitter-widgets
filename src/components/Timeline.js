@@ -1,13 +1,14 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import AbstractWidget from './AbstractWidget'
 import isEqual from 'lodash.isequal'
 import cloneDeep from 'lodash.clonedeep'
 
 export default class Timeline extends React.Component {
   static propTypes = {
-    dataSource: React.PropTypes.object.isRequired,
-    options: React.PropTypes.object,
-    onLoad: React.PropTypes.func
+    dataSource: PropTypes.object.isRequired,
+    options: PropTypes.object,
+    onLoad: PropTypes.func
   };
 
   static defaultProps = {
