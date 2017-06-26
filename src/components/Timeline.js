@@ -24,8 +24,8 @@ export default class Timeline extends React.Component {
   ready = (tw, element, done) => {
     const { dataSource, options, onLoad } = this.props
 
-    // Options must be cloned since Twitter Widgets modifies it directly
-    tw.widgets.createTimeline(dataSource, element, cloneDeep(options))
+    // Options and dataSource must be cloned since Twitter Widgets modifies it directly
+    tw.widgets.createTimeline(cloneDeep(dataSource), element, cloneDeep(options))
     .then(() => {
       // Widget is loaded
       done()
