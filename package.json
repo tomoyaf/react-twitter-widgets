@@ -54,8 +54,7 @@
   },
   "dependencies": {
     "exenv": "^1.2.1",
-    "lodash.clonedeep": "^4.3.1",
-    "lodash.isequal": "^4.1.1",
+    "lodash": "^4.17.4",
     "prop-types": "^15.3.0",
     "scriptjs": "^2.5.8"
   },
