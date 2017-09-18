@@ -3,6 +3,7 @@
   "version": "1.5.1",
   "description": "Twitter widgets as React components",
   "main": "dist/index.js",
+  "types": "src/index.d.ts",
   "scripts": {
     "clean": "rimraf dist",
     "build": "npm run clean && babel src --out-dir dist",
@@ -50,7 +51,8 @@
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.3",
     "react": "^15.3.0",
-    "rimraf": "^2.5.2"
+    "rimraf": "^2.5.2",
+    "@types/react": "^16.0.5"
   },
   "dependencies": {
     "exenv": "^1.2.1",
