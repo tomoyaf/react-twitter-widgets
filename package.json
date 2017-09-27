@@ -1,6 +1,6 @@
 {
   "name": "react-twitter-widgets",
-  "version": "1.6.1",
+  "version": "1.7.0",
   "description": "Twitter widgets as React components",
   "main": "dist/index.js",
   "types": "src/index.d.ts",
