@@ -25,7 +25,7 @@ yarn add react-twitter-widgets
 
 Available widget components: `Timeline`, `Share`, `Follow`, `Hashtag`, `Mention`, `Tweet`
 
-All widgets take an optional options object prop. To learn more about the available options (height, width, align, count, etc), see [this link](https://dev.twitter.com/web/javascript/creating-widgets).
+All widgets take an optional options object prop. To learn more about the available options (height, width, align, count, etc), see [this link](https://developer.twitter.com/en/docs/twitter-for-websites/javascript-api/guides/scripting-factory-functions).
 
 `Timeline` requires a `dataSource` object prop, see [here](https://dev.twitter.com/web/javascript/creating-widgets#timelines) for info. The source type can be profile, likes, list, collection, URL, or legacy widget configuration.
 
@@ -56,6 +56,8 @@ Examples:
 
 See the demo site for more examples.
 
+TODO: grid collection notes
+
 ## Loading the remote script eagerly
 
 The remote script can either be loaded eagerly (manually), or just-in-time when you attempt to render a widget component (the default).
@@ -68,7 +70,7 @@ Widget loading *will likely fail sometimes* (see above for reasons). If this hap
 
 You can supply the `fallback` prop to any widget component if you'd like to render a fallback component. If you supply `true`, this message will be the string `Could not load Twitter widget`. If you'd like to customize this component, you can supply a custom component.
 
-Example:
+Fallback example:
 ```js
 <Tweet
   username="TwitterDev"

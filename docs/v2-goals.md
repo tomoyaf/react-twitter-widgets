@@ -11,4 +11,4 @@
 * Live demo site
 * Tests (especially for quick-changing props)
 * Support React Storybook (see pull request #34)
-* Support lazy loading the twitter script
+* Support loading the twitter script eagerly
